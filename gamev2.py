@@ -4,11 +4,16 @@ swidth=600
 sheight=600
 window=pygame.display.set_mode((swidth,sheight))
 pygame.display.set_caption("First Game in Python")
+myfont= pygame.font.SysFont("Roboto", 40)
+label = myfont.render("Arrows and Space to move!",10,(255,255,0))
+window.blit(label,(100,100))
+pygame.display.update()
+pygame.time.delay(1500)
 
-x = 50
-y = 50
+x = 280
+y = 280
 width = 40
-height = 60
+height = 40
 speed = 5
 
 isJump=False
@@ -36,7 +41,11 @@ while run is True:
             isJump = True
     else:
         if jumpCount >= -10:
-            y -= (jumpCount**2)/2
+            negative=1
+            if jumpCount< 0:
+                negative =- 1
+
+            y -= (jumpCount**2)/2 * negative
             jumpCount -= 1
         else:
             isJump=False
@@ -44,7 +53,9 @@ while run is True:
 
 
     window.fill((0,0,0))
-    pygame.draw.rect(window,(255,0,0),(x,y,width,height))
+    pygame.draw.circle(window,(238,130,238),(300,300),40)
+    #pygame.draw.polygon(window, (255, 255, 255), ((250, 0),(125,125),(0,250)))
+    pygame.draw.rect(window, (255, 255, 255), (x, y, width, height))
     pygame.display.update()
 pygame.time.delay(1000)
 pygame.quit()
