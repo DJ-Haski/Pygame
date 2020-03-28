@@ -22,11 +22,11 @@ while run:
     keys=pygame.key.get_pressed()
     if keys[pygame.K_LEFT] and x>speed:
         x -= speed
-    if keys[pygame.K_RIGHT] and x<swidth:
+    if keys[pygame.K_RIGHT] and x<swidth-width-speed:
         x += speed
     if keys[pygame.K_UP] and y>speed:
         y -= speed
-    if keys[pygame.K_DOWN] and y<sheight:
+    if keys[pygame.K_DOWN] and y<sheight-height-speed:
         y += speed
 
     window.fill((0,0,0))
