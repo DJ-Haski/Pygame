@@ -19,7 +19,7 @@ while run is True:
     pygame.time.delay(50)
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT(): # тут ошибка, которую я не могу пофиксить :(
+        if event.type == pygame.QUIT: # тут ошибка, которую я не могу пофиксить :(
             run = False
 
     keys=pygame.key.get_pressed()
@@ -46,8 +46,8 @@ while run is True:
     window.fill((0,0,0))
     pygame.draw.rect(window,(255,0,0),(x,y,width,height))
     pygame.display.update()
-
-#pygame.quit()
+pygame.time.delay(1000)
+pygame.quit()
 
 
 
